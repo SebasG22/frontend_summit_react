@@ -1,0 +1,32 @@
+query albums {
+  allAlbums{
+    id
+    name
+    year
+  }
+}
+
+query reduceAlbums {
+    allAlbums {
+        id
+        name
+    }
+}
+
+query songs {
+    allSongs {
+        id,
+        name,
+        album {
+            name
+        }
+    }
+}
+
+
+mutation createSong($name: String!, $albumId: Float!) {
+  addSong(name: $name, albumId: $albumId) {
+    id
+    name
+  }
+}
